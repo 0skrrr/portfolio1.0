@@ -646,84 +646,6 @@ body.fade-out {
   font-size: 7vh;
 }
 
-.project-popup {
-  height: auto;
-  width: 100vw;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: center;
-}
-.project-title {
-  height: 90vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
-}
-.project-title-background {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  background: url("images/gallery/Project_GoL.png") center/cover no-repeat;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  filter: opacity(0.8) blur(2px);
-}
-.project-title-content {
-  background: var(--color-on-background);
-  color: var(--color-background);
-  font-family: title;
-  position: relative;
-  overflow: visible;
-  z-index:2;
-  width: 100vw;
-  height: 20vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.project-popup-content {
-  height: 100vh;
-  width: 100vw;
-}
-.project-popup-content {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  align-items: center;
-}
-.project-popup-content-text {
-  width: 30vw;
-  height: 20vh;
-  font-family: normal;
-  font-size: 4vh;
-  color: var(--color-on-background);
-}
-.project-popup-content-download {
-  width: 25vw;
-  height: 8vw;
-  background: var(--color-on-background);
-  color: var(--color-background);
-  font-family: normal;
-  font-size: 4vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  clip-path: polygon(0% 0%, 85% 0%, 100% 40%, 100% 100%, 15% 100%, 0% 60%);
-  position: relative;
-  transition: ease-in-out 0.2s;
-}
-.project-popup-content-download:hover {
-  cursor: pointer;
-  clip-path: polygon(0 0, 70% 0, 100% 30%, 100% 100%, 30% 100%, 0 75%);
-}
 
 /* Contact Page */
 
@@ -990,7 +912,7 @@ body.fade-out {
   .nav-bar-items {
     width: 100vw;
     flex-flow:column wrap;
-    height: 90vh;
+    height: 100vh;
     gap:7vh;
   }
   .nav-bar-item {
@@ -1025,6 +947,9 @@ body.fade-out {
   .about-left {
     height: 50vh;
   }
+  .email-line {
+    display:none;
+  }
   #about-nav-left:before,
   #about-nav-right:before {
     width: 5vh;
@@ -1051,6 +976,55 @@ body.fade-out {
     width: 100%;
     align-items: flex-start;
   }
+  .gallery-item::before,
+  .gallery-item::after {
+    width: 30vw;
+    height: 10vw;
+    animation:none;
+    transition: none;
+  }
+
+
+  .gallery-item::before {
+    top: 6vw;
+    left: 6vw;
+    border-top-color: var(--color-on-background);
+    border-left-color: var(--color-on-background);
+  }
+
+  .gallery-item::after {
+    bottom: 6vw;
+    right: 6w;
+    border-bottom-color: var(--color-on-background);
+    border-right-color: var(--color-on-background);
+  }
+
+  .gallery-item:nth-child(1)::before {
+    border-left-color: var(--color-on-background);
+    width: 40vw;
+    height: 20vw;
+  }
+  .gallery-item:nth-child(1)::after {
+    border-right-color: var(--color-on-background);
+    width: 40vw;
+    height: 20vw;
+  }
+  .gallery-item:not(.gallery-title-item):hover::before {
+  animation: none;
+}
+
+.gallery-item:not(.gallery-title-item):hover::after {
+  animation: none;
+}
+
+
+.gallery-item:not(.gallery-title-item):not(:hover)::before {
+  animation: none;
+}
+
+.gallery-item:not(.gallery-title-item):not(:hover)::after {
+animation: none;
+}
   .about-button {
     width: 40vw;
     height: 7vh;
